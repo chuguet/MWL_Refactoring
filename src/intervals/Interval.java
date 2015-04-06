@@ -8,9 +8,9 @@ public abstract class Interval {
 
     private Opening opening;
 
-    public Interval(double minimum, double maximum, Opening opening) {
-        this.minimum = minimum;
-        this.maximum = maximum;
+    public Interval(Point point, Opening opening) {
+        this.minimum = point.getX();
+        this.maximum = point.getY();
         this.opening = opening;
     }
 
