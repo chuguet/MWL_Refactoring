@@ -13,7 +13,6 @@ public class LeftOpenedInterval extends Interval {
 
     @Override
     public boolean intersectsWith(Interval interval) {
-
         if (this.getMinimum() == interval.getMaximum()) {
             return false;
         }
@@ -22,7 +21,6 @@ public class LeftOpenedInterval extends Interval {
                     || interval.getOpening() == Opening.UNOPENED;
         }
         return this.includes(interval.getMinimum()) || this.includes(interval.getMaximum());
-
     }
 
 }

@@ -20,7 +20,6 @@ public class BothOpenedInterval extends Interval {
             return false;
         }
         return this.includes(interval.getMinimum()) || this.includes(interval.getMaximum());
-
     }
 
 }

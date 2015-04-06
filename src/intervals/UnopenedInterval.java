@@ -22,7 +22,6 @@ public class UnopenedInterval extends Interval {
                     || interval.getOpening() == Opening.UNOPENED;
         }
         return this.includes(interval.getMinimum()) || this.includes(interval.getMaximum());
-
     }
 
 }
