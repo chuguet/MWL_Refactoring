@@ -44,7 +44,6 @@ public class LeftOpenedInterval extends Interval {
             assert false;
             return false;
         }
-
     }
 
 }
