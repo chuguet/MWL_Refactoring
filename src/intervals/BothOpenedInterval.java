@@ -13,13 +13,8 @@ public class BothOpenedInterval extends Interval {
 
     @Override
     public boolean intersectsWith(Interval interval) {
-        if (this.getMinimum() == interval.getMaximum()) {
-            return false;
-        }
-        if (this.getMaximum() == interval.getMinimum()) {
-            return false;
-        }
-        return this.includes(interval.getMinimum()) || this.includes(interval.getMaximum());
+        return !this.matchWithBegin(interval) && !this.matchWithEnd(interval)
+                && (this.includes(interval.getMinimum()) || this.includes(interval.getMaximum()));
     }
 
     @Override
