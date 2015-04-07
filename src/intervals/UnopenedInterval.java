@@ -26,25 +26,36 @@ public class UnopenedInterval extends Interval {
 
     @Override
     public boolean includes(Interval interval) {
-        boolean minimumIncluded = this.includes(interval.getMinimum());
-        boolean maximumIncluded = this.includes(interval.getMaximum());
-        switch (interval.getOpening()) {
-        case BOTH_OPENED:
-            return (minimumIncluded || this.getMinimum() == interval.getMinimum())
-                    && (maximumIncluded || this.getMaximum() == interval.getMaximum());
-        case LEFT_OPENED:
-            return (minimumIncluded || this.getMinimum() == interval.getMinimum())
-                    && (maximumIncluded || this.getMaximum() == interval.getMaximum());
-        case RIGHT_OPENED:
-            return (minimumIncluded || this.getMinimum() == interval.getMinimum())
-                    && (maximumIncluded || this.getMaximum() == interval.getMaximum());
-        case UNOPENED:
-            return (minimumIncluded || this.getMinimum() == interval.getMinimum())
-                    && (maximumIncluded || this.getMaximum() == interval.getMaximum());
-        default:
-            assert false;
-            return false;
-        }
+        return interval.includes(this);
+    }
+
+    @Override
+    public boolean includes(BothOpenedInterval interval) {
+        boolean minimumIncluded = interval.includes(this.getMinimum());
+        boolean maximumIncluded = interval.includes(this.getMaximum());
+        return (minimumIncluded) && (maximumIncluded);
+    }
+
+    @Override
+    public boolean includes(UnopenedInterval interval) {
+        boolean minimumIncluded = interval.includes(this.getMinimum());
+        boolean maximumIncluded = interval.includes(this.getMaximum());
+        return (minimumIncluded || interval.getMinimum() == this.getMinimum())
+                && (maximumIncluded || interval.getMaximum() == this.getMaximum());
+    }
+
+    @Override
+    public boolean includes(RightOpenedInterval interval) {
+        boolean minimumIncluded = interval.includes(this.getMinimum());
+        boolean maximumIncluded = interval.includes(this.getMaximum());
+        return (minimumIncluded || interval.getMinimum() == this.getMinimum()) && (maximumIncluded);
+    }
+
+    @Override
+    public boolean includes(LeftOpenedInterval interval) {
+        boolean minimumIncluded = interval.includes(this.getMinimum());
+        boolean maximumIncluded = interval.includes(this.getMaximum());
+        return (minimumIncluded) && (maximumIncluded || interval.getMaximum() == this.getMaximum());
     }
 
 }
