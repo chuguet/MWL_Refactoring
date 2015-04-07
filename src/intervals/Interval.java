@@ -57,4 +57,12 @@ public abstract class Interval {
         this.point = point;
     }
 
+    protected boolean matchWithEnd(Interval interval) {
+        return this.getMinimum() == interval.getMaximum();
+    }
+
+    protected boolean matchWithBegin(Interval interval) {
+        return this.getMaximum() == interval.getMinimum();
+    }
+
 }
