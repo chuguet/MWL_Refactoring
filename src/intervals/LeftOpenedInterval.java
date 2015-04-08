@@ -29,28 +29,28 @@ public class LeftOpenedInterval extends Interval {
     }
 
     @Override
-    public boolean includes(BothOpenedInterval interval) {
+    protected boolean includes(BothOpenedInterval interval) {
         boolean minimumIncluded = interval.includes(this.getMinimum());
         boolean maximumIncluded = interval.includes(this.getMaximum());
         return (minimumIncluded || this.getMinimum() == interval.getMinimum()) && (maximumIncluded);
     }
 
     @Override
-    public boolean includes(UnopenedInterval interval) {
+    protected boolean includes(UnopenedInterval interval) {
         boolean minimumIncluded = interval.includes(this.getMinimum());
         boolean maximumIncluded = interval.includes(this.getMaximum());
         return (minimumIncluded) && (maximumIncluded || interval.getMaximum() == this.getMaximum());
     }
 
     @Override
-    public boolean includes(RightOpenedInterval interval) {
+    protected boolean includes(RightOpenedInterval interval) {
         boolean minimumIncluded = interval.includes(this.getMinimum());
         boolean maximumIncluded = interval.includes(this.getMaximum());
         return (minimumIncluded || interval.getMinimum() == this.getMinimum()) && (maximumIncluded);
     }
 
     @Override
-    public boolean includes(LeftOpenedInterval interval) {
+    protected boolean includes(LeftOpenedInterval interval) {
         boolean minimumIncluded = interval.includes(this.getMinimum());
         boolean maximumIncluded = interval.includes(this.getMaximum());
         return (minimumIncluded || interval.getMinimum() == this.getMinimum())
