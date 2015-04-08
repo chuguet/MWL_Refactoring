@@ -2,8 +2,8 @@ package intervals;
 
 public class LeftOpenedInterval extends Interval {
 
-    public LeftOpenedInterval(Point point, Opening opening) {
-        super(point, opening);
+    public LeftOpenedInterval(double minimum, double maximum, Opening opening) {
+        super(minimum, maximum, opening);
     }
 
     @Override

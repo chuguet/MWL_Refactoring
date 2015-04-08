@@ -2,12 +2,15 @@ package intervals;
 
 public abstract class Interval {
 
-    private Point point;
+    private double minimum;
+
+    private double maximum;
 
     private Opening opening;
 
-    public Interval(Point point, Opening opening) {
-        this.point = point;
+    public Interval(double minimum, double maximum, Opening opening) {
+        this.minimum = minimum;
+        this.maximum = maximum;
         this.opening = opening;
     }
 
@@ -41,14 +44,6 @@ public abstract class Interval {
         return false;
     }
 
-    public double getMinimum() {
-        return this.getPoint().getX();
-    }
-
-    public double getMaximum() {
-        return this.getPoint().getY();
-    }
-
     public Opening getOpening() {
         return opening;
     }
@@ -57,20 +52,28 @@ public abstract class Interval {
         this.opening = opening;
     }
 
-    public Point getPoint() {
-        return point;
-    }
-
-    public void setPoint(Point point) {
-        this.point = point;
-    }
-
     protected boolean matchWithEnd(Interval interval) {
         return this.getMinimum() == interval.getMaximum();
     }
 
     protected boolean matchWithBegin(Interval interval) {
         return this.getMaximum() == interval.getMinimum();
+    }
+
+    public double getMinimum() {
+        return minimum;
+    }
+
+    public void setMinimum(double minimum) {
+        this.minimum = minimum;
+    }
+
+    public double getMaximum() {
+        return maximum;
+    }
+
+    public void setMaximum(double maximum) {
+        this.maximum = maximum;
     }
 
 }
