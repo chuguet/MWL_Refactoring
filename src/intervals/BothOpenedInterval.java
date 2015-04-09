@@ -2,8 +2,9 @@ package intervals;
 
 public class BothOpenedInterval extends Interval {
 
-    public BothOpenedInterval(Point minimum, Point maximum, Opening opening) {
-        super(minimum, maximum, opening);
+    public BothOpenedInterval(Point minimum, Point maximum) {
+        super(minimum, maximum);
+        this.setOpening(Opening.BOTH_OPENED);
     }
 
     @Override

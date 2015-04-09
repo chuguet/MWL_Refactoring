@@ -8,10 +8,9 @@ public abstract class Interval {
 
     private Opening opening;
 
-    public Interval(Point minimum, Point maximum, Opening opening) {
+    public Interval(Point minimum, Point maximum) {
         this.minimum = minimum;
         this.maximum = maximum;
-        this.opening = opening;
     }
 
     public double midPoint() {

@@ -2,8 +2,9 @@ package intervals;
 
 public class UnopenedInterval extends Interval {
 
-    public UnopenedInterval(Point minimum, Point maximum, Opening opening) {
-        super(minimum, maximum, opening);
+    public UnopenedInterval(Point minimum, Point maximum) {
+        super(minimum, maximum);
+        this.setOpening(Opening.UNOPENED);
     }
 
     @Override
